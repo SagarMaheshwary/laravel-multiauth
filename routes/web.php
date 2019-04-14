@@ -28,8 +28,8 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::post('/logout','LoginController@logout')->name('logout');
 
         //Register Routes
-        Route::get('/register','RegisterController@showRegistrationForm')->name('register');
-        Route::post('/register','RegisterController@register');
+        // Route::get('/register','RegisterController@showRegistrationForm')->name('register');
+        // Route::post('/register','RegisterController@register');
 
         //Forgot Password Routes
         Route::get('/password/reset','ForgotPasswordController@showLoginRequestForm')->name('password.request');
