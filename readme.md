@@ -1,5 +1,5 @@
 ## Laravel Application with Multiple Authentication
-Laravel application with admin guard. You can use this application for your projects.
+Laravel application with admin guard. You can even use this application for your projects if you need multiple guards.
 
 ## Getting this app up and running
 

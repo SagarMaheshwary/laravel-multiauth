@@ -32,17 +32,18 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         // Route::post('/register','RegisterController@register');
 
         //Forgot Password Routes
-        Route::get('/password/reset','ForgotPasswordController@showLoginRequestForm')->name('password.request');
+        Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('password.request');
         Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
         //Reset Password Routes
         Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('password.reset');
-        Route::post('/password/reset','ResetPasswordController@reset');
+        Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
 
     });
 
     Route::get('/dashboard','HomeController@index')->name('home');
 
+    //example route for testing intended() redirect
     Route::get('/new',function(){
         return 'hello admin route!';
     })->middleware('auth:admin');

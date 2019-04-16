@@ -20,7 +20,7 @@ class LoginController extends Controller
     */
 
     /**
-     * This class has all the login throttling functionality.
+     * This trait has all the login throttling functionality.
      */
     use ThrottlesLogins;
 
