@@ -38,11 +38,15 @@ Laravel application with admin guard. You can even use this application for your
     php artisan db:seed
 ```
 
-#### Default Admin Credentials.
+### Default Admin Credentials.
 - Email: admin@admin.com
 - password: password
 
-## Usage
+### Tutorial Links
+- [Laravel Multiple Guards Authentication: Setup and Login](https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-setup-and-login-2761564da986)
+- [Laravel Multiple Guards Authentication: Middleware, Login Throttle, and Password Reset](https://medium.com/@sagarmaheshwary31/laravel-multiple-guards-authentication-middleware-login-throttle-and-password-reset-a822e26f15ac)
+
+### Usage
 - Flash Messages: use **status** key for success messages and **error** key for error messages.
 - Guards: **web** (default) and **admin** (custom).
 - Auth middleware for admin guard: **auth:admin** for authenticated users using **admin** guard.
