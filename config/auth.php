@@ -116,4 +116,8 @@ return [
         ],
     ],
 
+    'verification' => [
+        'expire' => 60, //email verification link expiry. (minutes)
+    ]
+
 ];

@@ -7,9 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes([ 'verify' => true ]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 /* --------------------- Common/User Routes END -------------------------------- */
 
@@ -39,14 +39,14 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
         Route::get('/password/reset/{token}','ResetPasswordController@showResetForm')->name('password.reset');
         Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
 
+        // Email Verification Route(s)
+        Route::get('email/verify','VerificationController@show')->name('verification.notice');
+        Route::get('email/verify/{id}','VerificationController@verify')->name('verification.verify');
+        Route::get('email/resend','VerificationController@resend')->name('verification.resend');
+
     });
 
-    Route::get('/dashboard','HomeController@index')->name('home');
-
-    //example route for testing intended() redirect
-    Route::get('/new',function(){
-        return 'hello admin route!';
-    })->middleware('auth:admin');
+    Route::get('/dashboard','HomeController@index')->name('home')->middleware('guard.verified:admin,admin.verification.notice');
 
     //Put all of your admin routes here...
 

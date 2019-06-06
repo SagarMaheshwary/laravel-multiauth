@@ -51,5 +51,6 @@ Laravel application with admin guard. You can even use this application for your
 - Guards: **web** (default) and **admin** (custom).
 - Auth middleware for admin guard: **auth:admin** for authenticated users using **admin** guard.
 - Guest middleware for admin guard: **guest:admin** for unauthenticated users using **admin** guard.
+- This application has a custom middleware **EnsureCustomGuardIsVerified** that can be used for verifying emails of custom guards. This middleware is registered in the application as **guard.verified** and takes two arguments first guard name and second route name that will be used for redirecting unverified users. Example: **guard.verified:admin,admin.verification.notice** or **guard.verified:customer,customers.verify-notice**.
 - Don't use **@auth** or **@guest** directives for default guard, use **Auth::guard('web')->check()** with **@if** instead.
 - Admin and Default routes are seperated and all the admin routes are prefixed by **admin**.
